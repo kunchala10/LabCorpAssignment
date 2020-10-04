@@ -1,0 +1,10 @@
+<ul class="todo-list">
+  <li *ngFor="let todo of allTodos$ | async; let todoIndex=index;" [class.completed]="todo.completed" [class.editing]="todo.editing">
+    <div class="view">
+      <input class="toggle" type="checkbox" (click)="doComplete(todoIndex)" [checked]="todo.completed">
+      <label (dblclick)="editTodo(todo)">{{todo.text}}</label>
+      <button class="destroy" (click)="remove(todoIndex)"></button>
+    </div>
+    <input class="edit" *ngIf="todo.editing" [value]="todo.text" #editedtodo  (keyup.enter)="updateTodo(todoIndex, editedtodo.value)" (keyup.escape)="cancelUpdateTodo(todo)">
+  </li>
+</ul>

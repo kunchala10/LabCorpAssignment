@@ -1,0 +1,15 @@
+<footer class="footer">
+    <span class="todo-count"></span>
+    <ul class="filters">
+      <li>
+        <a class="selected" (click)="doFilter('All')">All</a>
+      </li>
+      <li>
+        <a  (click)="doFilter('Active')">Active</a>
+      </li>
+      <li>
+        <a (click)="doFilter('Completed')">Completed</a>
+      </li>
+    </ul>
+    <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
+  </footer>
